@@ -1,0 +1,9 @@
+<h1>Manifest test with AngularJS</h1>
+<div ng-controller="ManifestTreeCtrl">
+	<p>DLAP version: {{dlapVersion}}</p>
+	<ul>
+		<div ng-repeat="item in tree.item">
+			 <div ng-include="'views/manifesttreeitem.html'"></div>
+		</div>
+	</ul>
+</div>
