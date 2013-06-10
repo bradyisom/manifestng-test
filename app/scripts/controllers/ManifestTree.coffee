@@ -1,5 +1,3 @@
-'use strict'
-
 angular.module('manifestngApp')
 	.controller 'ManifestTreeCtrl', ['$scope', 'dlap', 'xliManifest', ($scope, dlap, manifest) ->
 		dlap.login(
