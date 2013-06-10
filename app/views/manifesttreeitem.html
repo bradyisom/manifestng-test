@@ -1,5 +1,5 @@
 <li>
-	<a href="">{{item.data.title.$value}}</a>
+	<a href="" ng-click="select(item)">{{item.data.title.$value}}</a>
 	<ul ng-show="item.item">
 		<div ng-repeat="item in item.item">
 			 <div ng-include="'views/manifesttreeitem.html'"></div>

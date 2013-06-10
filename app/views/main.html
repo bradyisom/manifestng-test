@@ -1,7 +1,8 @@
 <h1>ngManifest</h1>
 <div ng-controller="ManifestTreeCtrl">
-	<p>DLAP version: {{dlapVersion}}</p>
-	<p>meta-type: {{tree.getDataValue('meta-type')}}</p>
+	<!-- <p>DLAP version: {{dlapVersion}}</p> -->
+	<!-- <p>meta-type: {{tree.getDataValue('meta-type')}}</p> -->
+	<div class="item-content" ng-bind-html-unsafe="content.content.$value"></div>
 	<ul>
 		<div ng-repeat="item in tree.item[0].item">
 			 <div ng-include="'views/manifesttreeitem.html'"></div>
