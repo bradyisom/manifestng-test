@@ -4,9 +4,9 @@ angular.module('manifestngApp', ['dlap'])
 			urlBase: "http://localhost:1408/Dlap/"
 		)
 		$routeProvider
-			.when '/',
+			.when '/course/:enrollmentId',
 				templateUrl: 'views/main.html'
 				controller: 'MainCtrl'
 			.otherwise
-				redirectTo: '/'
+				redirectTo: '/course/2512573'
   	]
