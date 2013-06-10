@@ -1,19 +1,27 @@
 angular.module('dlap', [])
-	.factory 'dlap', ($http, $q) ->
-		urlBase = "http://localhost:1408/Dlap/cmd/"
+	.provider 'dlap', ->
+		urlBase = ""
 		token = null
 
-		{
+		@init = (options)->
+			urlBase = options.urlBase if options?.urlBase
+			if urlBase.lastIndexOf('/') != urlBase.length-1
+				urlBase += '/'
+			urlBase += 'cmd/'
+
+		@$get = ($http, $q) ->
 			request: (config, options)->
 				deferred = $q.defer()
 				config.params or= {}
 				angular.extend config.params, _token:token
 				$http(config)
 					.success (data)->
-						if(data.response.code != 'OK')
+						if(!options?.ignoreResponseCode and 
+								data.response.code != 'OK')
 							deferred.reject(data)
 						else
-							token = data.response._token
+							if data?.response?._token
+								token = data.response._token
 							if options?.process
 								data = options.process(data)
 							deferred.resolve(data)
@@ -37,4 +45,3 @@ angular.module('dlap', [])
 				@post('', 
 					request: angular.extend(credentials, cmd:'login')
 				)
-		}
