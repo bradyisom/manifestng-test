@@ -1,15 +1,7 @@
 angular.module('manifestngApp')
-	.controller 'ManifestTreeCtrl', ['$scope', '$routeParams', 'dlap', 'xliManifest', ($scope, $routeParams, dlap, manifest) ->
-		enrollmentId = $routeParams.enrollmentId
+	.controller 'ManifestTreeCtrl', ['$scope', 'xliManifest', ($scope, manifest) ->
+		$scope.selectedTreeItem = null
 		$scope.select = (item)->
-			$scope.selected = item
-			$scope.content = manifest.getContent(enrollmentId, item.id)
-		dlap.login(
-			username: 'dev/brady'
-			password: 'agilix'
-		).then ->
-			$scope.dlapVersion = dlap.get('getstatus', null, process: (data)->
-				data.response.status.version				
-			)
-			$scope.tree = manifest.get(enrollmentId)
+			$scope.selectedTreeItem = item
+			$scope.$emit('item:select', [item])
 	]

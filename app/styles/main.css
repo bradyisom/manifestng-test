@@ -1,5 +1,13 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+.manifest-tree {
+	float: left;
+	width: 30%;
+}
+
 .item-content {
-	float: right;
-	width: 70%;
+	margin-left: 35%;
+}
+
+.selected {
+	background-color: yellow;
 }
