@@ -5,7 +5,7 @@ class Manifest
 	getDataValue: (name)->
 		@data?[name]?.$value
 
-angular.module('dlap').factory 'xliManifest', ($http, $q, dlap) ->
+angular.module('xli-ng').factory 'xliManifest', ($http, $q, dlap) ->
 	{
 		get: (entityId)->
 			dlap.get('getmanifest',

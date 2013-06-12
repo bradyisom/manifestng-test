@@ -1,4 +1,4 @@
-angular.module('dlap').directive('coursePlayer', ['xliManifest', (manifest)->
+angular.module('xli-ng').directive('coursePlayer', ['xliManifest', (manifest)->
 		restrict: 'E'
 		templateUrl: 'views/courseplayer.html'
 		replace: false

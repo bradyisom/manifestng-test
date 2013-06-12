@@ -1,4 +1,4 @@
-angular.module('dlap').directive('courseTree', ->
+angular.module('xli-ng').directive('courseTree', ->
 	restrict: 'E'
 	templateUrl: 'views/coursetree.html'
 	replace: true

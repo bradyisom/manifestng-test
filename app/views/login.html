@@ -1,0 +1,20 @@
+<form class="row form-horizontal" ng-controller="LoginCtrl">
+	<!-- <p>Return URL: {{returnUrl}}</p> -->
+	<div class="control-group">
+		<label class="control-label" for="loginUsername">Username</label>
+		<div class="controls">
+			<input type="text" id="loginUsername" name="username" ng-model="username" required>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="loginPassword">Password</label>
+		<div class="controls">
+			<input type="password" id="loginPassword" name="password" ng-model="password" required>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn" ng-click="login()">Login</button>
+		</div>
+	</div>
+</form>
