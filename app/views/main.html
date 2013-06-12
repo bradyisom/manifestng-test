@@ -1,11 +1,5 @@
-<h1>ngManifest</h1>
 <div ng-controller="ManifestPlayerCtrl">
 <!-- 	<p>DLAP version: {{dlapVersion}}</p>
-	<p>meta-type: {{manifest.getDataValue('meta-type')}}</p> -->
-	<ul class="manifest-tree" ng-controller="ManifestTreeCtrl">
-		<div ng-repeat="item in manifest.item[0].item">
-			 <div ng-include="'views/manifesttreeitem.html'"></div>
-		</div>
-	</ul>
-	<div class="item-content" ng-bind-html-unsafe="content.content.$value"></div>
+<p>meta-type: {{manifest.getDataValue('meta-type')}}</p> -->
+	<course-player data-manifest="manifest" data-enrollment-id="enrollmentId"></course-player>
 </div>
