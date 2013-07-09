@@ -1,5 +1,5 @@
 angular.module('xli-ng').directive('coursePlayer', ['xliManifest', (manifest)->
-		restrict: 'E'
+		restrict: 'EA'
 		templateUrl: 'views/courseplayer.html'
 		replace: false
 		scope: 

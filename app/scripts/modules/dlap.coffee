@@ -3,6 +3,7 @@ angular.module('xli-ng', ['ngCookies'])
 		urlBase = ""
 		cookieName = 'dlapCookie'
 		token = null
+		userInfo = null
 
 		@init = (options)->
 			urlBase = options.urlBase if options?.urlBase
@@ -16,6 +17,7 @@ angular.module('xli-ng', ['ngCookies'])
 				savedToken = $cookieStore.get cookieName
 				if savedToken
 					token = savedToken
+				userInfo = JSON.parse(localStorage.getItem 'userInfo')
 
 			request: (config, options)->
 				deferred = $q.defer()
@@ -23,7 +25,7 @@ angular.module('xli-ng', ['ngCookies'])
 				angular.extend config.params, _token:token
 				$http(config)
 					.success (data)->
-						if(!options?.ignoreResponseCode and 
+						if(!options?.ignoreResponseCode and
 								data.response.code != 'OK')
 							deferred.reject(data)
 						else
@@ -53,14 +55,23 @@ angular.module('xli-ng', ['ngCookies'])
 			isLoggedIn: ->
 				!!token
 
+			getUser: ->
+					userInfo
+
 			login: (credentials)->
-				@post('', 
+				promise = @post('',
 					request: angular.extend(credentials, cmd:'login')
 				)
+				promise.then (data)->
+					userInfo = data.response.user
+					localStorage.setItem 'userInfo', JSON.stringify(userInfo)
+				promise
 
 			logout: (credentials)->
 				promise = @get('logout')
 				promise.then ->
 					token = null
+					userInfo = null
 					$cookieStore.remove cookieName
+					localStorage.setItem 'userInfo', null
 				promise

@@ -6,9 +6,12 @@ app.config ['$routeProvider', 'dlapProvider', ($routeProvider, dlapProvider) ->
 		)
 
 		$routeProvider
-			.when '/course/:enrollmentId', 
+			.when '/course/:enrollmentId',
 				templateUrl: 'views/main.html'
 				controller: 'MainCtrl'
+			.when '/home',
+				templateUrl: 'views/home.html'
+				controller: 'HomeCtrl'
 			.when '/login',
 				templateUrl: 'views/login.html'
 				public: true
@@ -16,7 +19,7 @@ app.config ['$routeProvider', 'dlapProvider', ($routeProvider, dlapProvider) ->
 				templateUrl: 'views/login.html'
 				public: true
 			.otherwise
-				redirectTo: '/course/2512573'
+				redirectTo: '/home'
   	]
 
 app.run ['$rootScope', '$location', 'dlap', ($rootScope, $location, dlap)->

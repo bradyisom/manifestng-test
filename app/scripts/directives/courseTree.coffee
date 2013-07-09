@@ -1,5 +1,5 @@
 angular.module('xli-ng').directive('courseTree', ->
-	restrict: 'E'
+	restrict: 'EA'
 	templateUrl: 'views/coursetree.html'
 	replace: true
 	scope: 
