@@ -27,7 +27,15 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-        <h1>ngManifest</h1>
+    	<div class="navbar">
+    		<div class="navbar-inner">
+    			<a href="#" class="brand">xLi-ng</a>
+    			<ul class="nav">
+    				<li><a href="#">Home</a></li>
+    				<li><a href="#/logout">Logout</a></li>
+    			</ul>
+    		</div>
+    	</div>
         <div ng-view></div>
     </div>
 
@@ -35,6 +43,9 @@
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+    <script src="components/underscore/underscore-min.js"></script>
+    <script src="components/underscore.string/dist/underscore.string.min.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/modules/dlap.js"></script>

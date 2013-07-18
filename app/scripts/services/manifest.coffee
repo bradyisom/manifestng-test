@@ -6,19 +6,17 @@ class Manifest
 		@data?[name]?.$value
 
 angular.module('xli-ng').factory 'xliManifest', ($http, $q, dlap) ->
-	{
-		get: (entityId)->
-			dlap.get('getmanifest',
-				entityid: entityId
-			, process: (data)->
-				new Manifest(data.response.manifest)
-			)
+	get: (entityId)->
+		dlap.get('getmanifest',
+			entityid: entityId
+		, process: (data)->
+			new Manifest(data.response.manifest)
+		)
 
-		getContent: (enrollmentId, itemId)->
-			dlap.get('navigateitem',
-				enrollmentId: enrollmentId
-				itemId: itemId
-			, process: (data)->
-				data.response.navigate
-			)
-	}
+	getContent: (enrollmentId, itemId)->
+		dlap.get('navigateitem',
+			enrollmentId: enrollmentId
+			itemId: itemId
+		, process: (data)->
+			data.response.navigate
+		)
