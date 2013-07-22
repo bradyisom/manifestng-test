@@ -10,7 +10,10 @@ angular.module('xli-ng').factory 'xliManifest', ($http, $q, dlap) ->
 		dlap.get('getmanifest',
 			entityid: entityId
 		, process: (data)->
-			new Manifest(data.response.manifest)
+			# new Manifest(data.response.manifest)
+			manifest = XLI.createModel 'Manifest',
+				values: data.response.manifest
+			manifest
 		)
 
 	getContent: (enrollmentId, itemId)->
