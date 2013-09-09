@@ -1,11 +1,11 @@
-app = angular.module('manifestngApp', ['xli-ng'])
+app = angular.module('manifestngApp', ['xli-ng', 'ui'])
 
 app.config ['$routeProvider', 'dlapProvider', ($routeProvider, dlapProvider) ->
 
 		_.mixin(_.str.exports())
 
 		dlapProvider.init(
-			urlBase: "http://localhost:1408/Dlap/"
+			urlBase: "http://brighton.agilix.com/"
 		)
 
 		$routeProvider

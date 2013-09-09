@@ -1,5 +1,10 @@
 <div ng-controller="ManifestPlayerCtrl">
 	<p>DLAP version: {{dlapVersion}}</p>
-	<p>meta-type: {{manifest.getDataValue('meta-type')}}</p>
+	<!-- <p>meta-type: {{manifest.getDataValue('meta-type')}}</p> -->
+	<!-- <p>Allow static copy: {{manifest.getDataValue('allowstaticcopy')}}</p> -->
+	<p>Manifest version: {{manifest.version}}</p>
+	<p>Item count: {{manifest.itemCount}}</p>
+	<input type="text" ng-model="newItemTitle" ui-keypress="{enter:'addItem()'}">
+	<button ng-click="addItem()">Add Item</button>
 	<course-player data-manifest="manifest" data-enrollment-id="enrollmentId"></course-player>
 </div>

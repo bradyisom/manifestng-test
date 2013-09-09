@@ -2,7 +2,7 @@ angular.module('xli-ng').directive('courseTree', ->
 	restrict: 'EA'
 	templateUrl: 'views/coursetree.html'
 	replace: true
-	scope: 
+	scope:
 		manifest: '='
 	link: (scope, el, attrs)->
 		scope.selectedTreeItem = null

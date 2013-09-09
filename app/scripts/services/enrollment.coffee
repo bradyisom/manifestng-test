@@ -1,4 +1,4 @@
-angular.module('xli-ng').factory 'xliEnrollment', ($http, $q, dlap) ->
+angular.module('xli-ng').factory 'xliEnrollment', ['$http', '$q', 'dlap', ($http, $q, dlap) ->
 	{
 		getUserEnrollmentList: (userId)->
 			dlap.get('getuserenrollmentlist2',
@@ -7,3 +7,4 @@ angular.module('xli-ng').factory 'xliEnrollment', ($http, $q, dlap) ->
 				data.response.enrollments.enrollment
 			)
 	}
+]

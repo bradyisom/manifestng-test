@@ -124,8 +124,11 @@ module.exports = function (grunt) {
       dist: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
-            '.tmp/scripts/{,*/}*.js',
-            '<%= yeoman.app %>/scripts/{,*/}*.js'
+            '.tmp/scripts/modules/*.js',
+            '.tmp/scripts/directives/*.js',
+            '.tmp/scripts/app.js',
+            '.tmp/scripts/services/*.js',
+            '.tmp/scripts/controllers/*.js',
           ]
         }
       }
@@ -260,7 +263,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
-    'test',
+    //'test',
     'coffee',
     'useminPrepare',
     'concat',

@@ -12,7 +12,7 @@ angular.module('xli-ng', ['ngCookies'])
 			urlBase += 'cmd/'
 			cookieName = options.cookieName if options?.cookieName
 
-		@$get = ($http, $q, $cookieStore) ->
+		providerGet = ($http, $q, $cookieStore) ->
 			start: ->
 				savedToken = $cookieStore.get cookieName
 				if savedToken
@@ -75,3 +75,6 @@ angular.module('xli-ng', ['ngCookies'])
 					$cookieStore.remove cookieName
 					localStorage.setItem 'userInfo', null
 				promise
+		providerGet.$inject = ['$http', '$q', '$cookieStore']
+
+		@$get = providerGet
