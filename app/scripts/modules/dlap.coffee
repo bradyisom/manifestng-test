@@ -4,13 +4,37 @@ angular.module('xli-ng', ['ngCookies'])
 		cookieName = 'dlapCookie'
 		token = null
 		userInfo = null
+		cachePrefix = 'xli'
+		cacheLocal = false #Modernizr.localstorage
 
 		@init = (options)->
 			urlBase = options.urlBase if options?.urlBase
 			if urlBase.lastIndexOf('/') != urlBase.length-1
 				urlBase += '/'
 			urlBase += 'cmd/'
-			cookieName = options.cookieName if options?.cookieName
+			if options
+				cookieName = options.cookieName if options.cookieName
+				cachePrefix = options.cachePrefix if options.cachePrefix
+				cacheLocal = !!options.cacheLocal if options.cacheLocal?
+
+		getCacheKey = (config, options)->
+			cmd = ''
+			cmd = config.url.substr(urlBase.length) if _.startsWith(config.url, urlBase)
+			params = JSON.stringify(_.omit(config.params, '_token'))
+			options = JSON.stringify(options)
+			cacheKey = "#{cachePrefix}|#{cmd}"
+			cacheKey += "|#{params}" if params != '{}'
+			cacheKey += "|#{options}" if options != '{}'
+			# console.log 'cacheKey', cacheKey
+			cacheKey
+
+		checkCache = (cacheKey)->
+			cacheVal = localStorage.getItem(cacheKey)
+			return JSON.parse(cacheVal) if cacheVal
+			return null
+
+		setCache = (cacheKey, data)->
+			localStorage.setItem(cacheKey, JSON.stringify(data))
 
 		providerGet = ($http, $q, $cookieStore) ->
 			start: ->
@@ -23,6 +47,13 @@ angular.module('xli-ng', ['ngCookies'])
 				deferred = $q.defer()
 				config.params or= {}
 				angular.extend config.params, _token:token
+				cacheKey = ''
+				if cacheLocal and not options?.noCache
+					cacheKey = getCacheKey config, options
+					data = checkCache(cacheKey)
+					if data
+						deferred.resolve(data)
+						return deferred.promise
 				$http(config)
 					.success (data)->
 						if(!options?.ignoreResponseCode and
@@ -34,6 +65,9 @@ angular.module('xli-ng', ['ngCookies'])
 								$cookieStore.put cookieName, token
 							if options?.process
 								data = options.process(data)
+							if cacheLocal and not options?.noCache
+								# console.log 'adding cache', "#{cacheKey}: #{JSON.stringify(data)}"
+								setCache(cacheKey, data)
 							deferred.resolve(data)
 					.error (data, status, headers, config)->
 						deferred.reject(data)

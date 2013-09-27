@@ -3,12 +3,12 @@
 describe 'Service: manifest', () ->
 
   # load the service's module
-  beforeEach module 'initApp'
+  beforeEach module 'manifestngApp'
 
   # instantiate service
   manifest = {}
-  beforeEach inject (_manifest_) ->
-    manifest = _manifest_
+  beforeEach inject (xliManifest) ->
+    manifest = xliManifest
 
   it 'should do something', () ->
     expect(!!manifest).toBe true;

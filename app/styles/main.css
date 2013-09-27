@@ -11,3 +11,7 @@
 .selected > a {
 	background-color: yellow;
 }
+
+.navbar-inner .pull-right {
+	margin-top: 6px;
+}

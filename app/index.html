@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -35,21 +35,47 @@
     				<li><a href="#">Home</a></li>
     				<li><a href="#/logout">Logout</a></li>
     			</ul>
+    			<a class="pull-right"
+					href="https://travis-ci.org/bradyisom/manifestng-test"
+					target="_blank">
+    					<img src="https://travis-ci.org/bradyisom/manifestng-test.png?branch=master"
+    						alt="travis-ci build status">
+				</a>
     		</div>
     	</div>
         <div ng-view></div>
     </div>
 
-    <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/angular-ui/build/angular-ui.min.js"></script>
+    <!-- build:js scripts/components.js -->
+	<script src="components/jquery/jquery.min.js"></script>
 
-    <!--<script src="components/underscore/underscore-min.js"></script>
-    <script src="components/underscore.string/dist/underscore.string.min.js"></script>-->
+	<script src="components/angular/angular.js"></script>
+	<script src="components/angular-resource/angular-resource.js"></script>
+	<script src="components/angular-cookies/angular-cookies.js"></script>
+	<script src="components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="components/angular-ui/build/angular-ui.min.js"></script>
 
-    <script src="http://brighton.agilix.com/js/thirdparty"></script>
+	<script src="components/underscore/underscore-min.js"></script>
+	<script src="components/underscore.string/dist/underscore.string.min.js"></script>
+	<script src="components/modernizr/modernizr.js"></script>
+	<script src="components/backbone/backbone-min.js"></script>
+
+	<script src="components/bootstrap/js/bootstrap-affix.js"></script>
+	<script src="components/bootstrap/js/bootstrap-alert.js"></script>
+	<script src="components/bootstrap/js/bootstrap-button.js"></script>
+	<script src="components/bootstrap/js/bootstrap-carousel.js"></script>
+	<script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+	<script src="components/bootstrap/js/bootstrap-dropdown.js"></script>
+	<script src="components/bootstrap/js/bootstrap-modal.js"></script>
+	<script src="components/bootstrap/js/bootstrap-tooltip.js"></script>
+	<script src="components/bootstrap/js/bootstrap-popover.js"></script>
+	<script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+	<script src="components/bootstrap/js/bootstrap-tab.js"></script>
+	<script src="components/bootstrap/js/bootstrap-transition.js"></script>
+	<script src="components/bootstrap/js/bootstrap-typeahead.js"></script>
+	<script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- build:js scripts/components.js -->
+
     <script src="http://brighton.agilix.com/js/api"></script>
 
     <!-- build:js scripts/scripts.js -->
