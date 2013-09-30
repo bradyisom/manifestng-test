@@ -1,5 +1,5 @@
 angular.module('manifestngApp')
-	.controller 'ManifestPlayerCtrl', ['$scope', '$routeParams', 'dlap', 'xliManifest', ($scope, $routeParams, dlap, manifest) ->
+	.controller 'ManifestPlayerCtrl', ['$scope', '$routeParams', 'dlap', 'xli-manifest', ($scope, $routeParams, dlap, manifest) ->
 		$scope.enrollmentId = $routeParams.enrollmentId
 		$scope.dlapVersion = dlap.get('getstatus', null, process: (data)->
 			data.response.status.version

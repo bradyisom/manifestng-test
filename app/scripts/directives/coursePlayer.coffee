@@ -1,4 +1,4 @@
-angular.module('xli-ng').directive('coursePlayer', ['xliManifest', (manifest)->
+angular.module('xli-ng').directive('coursePlayer', ['xli-manifest', (manifest)->
 		restrict: 'EA'
 		templateUrl: 'views/courseplayer.html'
 		replace: false

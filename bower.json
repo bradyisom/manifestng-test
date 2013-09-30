@@ -15,7 +15,8 @@
     "jquery": "~1.9.1",
     "backbone": "~0.9.2",
     "bootstrap": "~2.3.1",
-    "bootstrap-datepicker": "~1.0.0"
+    "bootstrap-datepicker": "~1.0.0",
+    "xli-ng": "git@github.com:AgilixLabs/xli-ng.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
