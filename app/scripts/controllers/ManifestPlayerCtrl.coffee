@@ -8,7 +8,7 @@ angular.module('manifestngApp')
 			$scope.manifest = manifest
 
 		$scope.addItem = ->
-			$scope.manifest.item[0].item.push {
+			$scope.manifest.root.item.push {
 				data:
 					title:
 						$value: $scope.newItemTitle

@@ -1,12 +1,8 @@
 app = angular.module('manifestngApp', ['xli-ng', 'ui'])
 
-app.config ['$routeProvider', 'dlapProvider', ($routeProvider, dlapProvider) ->
+app.config ['$routeProvider', ($routeProvider) ->
 
 		_.mixin(_.str.exports())
-
-		dlapProvider.init(
-			urlBase: "http://brighton.agilix.com/"
-		)
 
 		$routeProvider
 			.when '/course/:enrollmentId',
@@ -37,5 +33,7 @@ app.run ['$rootScope', '$location', 'dlap', ($rootScope, $location, dlap)->
 			else if not dlap.isLoggedIn() and not next.$$route?.public
 				$location.path("/login/#{encodeURIComponent($location.$$path)}")
 		# Start DLAP module
-		dlap.start()
+		dlap.start(
+			urlBase: "http://brighton.agilix.com/"
+		)
 	]
