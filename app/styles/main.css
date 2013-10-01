@@ -4,7 +4,7 @@
 	width: 30%;
 }
 
-.item-content {
+.item-content, .item-title {
 	margin-left: 35%;
 }
 
